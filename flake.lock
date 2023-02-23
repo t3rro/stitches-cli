@@ -41,11 +41,11 @@
         "flake-utils": "flake-utils"
       },
       "locked": {
-        "lastModified": 1677157710,
-        "narHash": "sha256-AP5muG9VFNilabL9VvV0A4aZNtyv6nsB6gccVWOn76g=",
+        "lastModified": 1677158160,
+        "narHash": "sha256-LcUIGJei7AoOBpG+jm2U6+EmD6cOm9EgbpGmDjKTQ50=",
         "owner": "t3rro",
         "repo": "ruby-flake-utils",
-        "rev": "2dc5a4517772b6546a026761f359018439eeeaa6",
+        "rev": "5ac89686cadf3e33d947902b757ac303194e2650",
         "type": "github"
       },
       "original": {
