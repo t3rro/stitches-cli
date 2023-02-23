@@ -12,5 +12,6 @@
       ./Gemfile
       ./gemset.nix
       "bin"
+      ./.
   ;
 }
