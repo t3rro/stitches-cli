@@ -1,2 +1,2 @@
-require %(stitches/cli)
+require_relative %(lib/stitches/cli)
 Command.new.run
