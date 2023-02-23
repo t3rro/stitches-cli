@@ -14,7 +14,11 @@ group :development do
 end
 
 group :production do
-  %w[stitches-terraform-synthesizer].each do |this_gem|
+  %w[
+    stitches-terraform-synthesizer
+    tty-command
+    tty-option
+  ].each do |this_gem|
     gem this_gem
   end
 end
