@@ -1,4 +1,6 @@
 require_relative %(./stitches)
+require_relative %(./infra)
+require_relative %(./config)
 
 class Command < StitchesCommand
   usage do
