@@ -16,9 +16,7 @@ end
 group :production do
   %w[
     stitches-terraform-synthesizer
-    tty-command
     tty-option
-    tty-prompt
   ].each do |this_gem|
     gem this_gem
   end
