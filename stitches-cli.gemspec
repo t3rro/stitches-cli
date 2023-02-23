@@ -6,7 +6,7 @@ require_relative %(./lib/stitches/cli/version)
 
 Gem::Specification.new do |spec|
   spec.name                  = %(stitches-cli)
-  spec.version               = Stitches::Synthesizer::VERSION
+  spec.version               = Stitches::Cli::VERSION
   spec.authors               = [%(t3rro)]
   spec.email                 = [%()]
   spec.description           = %(control declarative systems)
