@@ -6,7 +6,7 @@ class Command
   include TTY::Option
 
   usage do
-    desc %(manage stitches configuration)
+    desc %(manage configuration)
     program %(stitches)
     command %(config)
   end
