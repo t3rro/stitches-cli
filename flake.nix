@@ -11,5 +11,6 @@
       ./Gemfile.lock
       ./Gemfile
       ./gemset.nix
+      "bin"
   ;
 }

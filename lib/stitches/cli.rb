@@ -2,57 +2,73 @@ require %(tty-command)
 require %(tty-prompt)
 require %(tty-option)
 
-module CLI
-  class CLI
-    def initialize(args)
-      @args     = args
-      @prompt   = TTY::Prompt.new
-      @command  = TTY::Command.new
-      @options  = {}
-    end
+class Command
+  include TTY::Option
 
-    def run
-      parse_options
-      subcommand = @args.shift
-      case subcommand
-      when %(run)
-        run_command
-      when %(init)
-        init_project
-      when %(help)
-        puts %(Available commands: run, init)
-      else
-        puts %(Invalid command: #{subcommand}. Type '--help' for a list of available commands.)
-      end
-    end
+  usage do
+    program %(stitches)
 
-    private
+    command %(run)
 
-    def parse_options
-      opt = TTY::Option.new
-      opt.on(
-        %(-d DIRECTORY),
-        %(--directory DIRECTORY),
-        %(Working directory)
-      ) do |dir|
-        @options[:directory] = dir
-      end
-      opt.parse!(@args)
-    end
+    desc %(Run a command in a new container)
 
-    def run_command
-      command = @prompt.ask(
-        %(Enter command to run: )
-      )
-      result = @command.run(command, @options)
-      puts result.out if result.success?
-      puts result.err if result.failure?
-    end
+    example %(Set working directory (-w)),
+            %(  $ dock run -w /path/to/dir/ ubuntu pwd)
 
-    def init_project
-      puts %(Initializing project...)
+    example <<~MOUNT
+      Mount volume
+        $ dock run -v `pwd`:`pwd` -w `pwd` ubuntu pwd
+    MOUNT
+  end
+
+  argument :image do
+    required
+    desc %(The name of the image to use)
+  end
+
+  argument :command do
+    optional
+    desc %(The command to run inside the image)
+  end
+
+  keyword :restart do
+    default %(no)
+    permit %w[no on-failure always unless-stopped]
+    desc %(Restart policy to apply when a container exits)
+  end
+
+  flag :help do
+    short %(-h)
+    long %(--help)
+    desc %(Print usage)
+  end
+
+  flag :detach do
+    short %(-d)
+    long %(--detach)
+    desc %(Run container in background and print container ID)
+  end
+
+  option :name do
+    required
+    long %(--name string)
+    desc %(Assign a name to the container)
+  end
+
+  option :port do
+    arity one_or_more
+    short %(-p)
+    long %(--publish list)
+    convert :list
+    desc %(Publish a container's port(s) to the host)
+  end
+
+  def run
+    if params[:help]
+      print help
+      exit
+    else
+      pp params.to_h
     end
   end
 end
-
-CLI::CLI.new(ARGV).run if __FILE__ == $PROGRAM_NAME
