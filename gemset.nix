@@ -301,6 +301,16 @@
     };
     version = "0.48.0";
   };
+  stitches-terraform-synthesizer = {
+    groups = ["production"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "1rsicdm7xpq27q210wkdvbmrlhni9w51a9jir85qf0sgblc83v4r";
+      type = "gem";
+    };
+    version = "0.0.2";
+  };
   thor = {
     groups = ["default" "development"];
     platforms = [];
