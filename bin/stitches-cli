@@ -1,0 +1,2 @@
+require %(stitches/cli)
+Command.new.run
