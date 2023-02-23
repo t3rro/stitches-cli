@@ -24,9 +24,7 @@ class Command < StitchesCommand
       ConfigCommand.new.run(argv)
     end
 
-    if params[:help]
-      print help
-      exit
-    end
+    print help
+    exit
   end
 end
