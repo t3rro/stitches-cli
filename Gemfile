@@ -12,3 +12,9 @@ group :development do
     gem this_gem
   end
 end
+
+group :production do
+  %w[stitches-terraform-synthesizer].each do |this_gem|
+    gem this_gem
+  end
+end
