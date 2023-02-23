@@ -1,1 +1,1 @@
-require_relative %(./subcommands/main)
+require_relative %(./cli/subcommands/main)
