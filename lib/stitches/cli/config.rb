@@ -62,8 +62,3 @@ module Config
     end
   end
 end
-
-require 'json'
-puts Config.default_paths
-puts Config.default_paths.class
-puts Config.default_paths.length
