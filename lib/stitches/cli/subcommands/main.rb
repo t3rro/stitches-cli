@@ -24,7 +24,7 @@ class Command < StitchesCommand
     when %(config)
       ConfigCommand.new.run(argv)
     else
-      help if params[:help]
+      puts help if params[:help]
       puts Stitches::Cli::VERSION if params[:version]
       exit
     end
