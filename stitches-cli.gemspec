@@ -18,10 +18,6 @@ Gem::Specification.new do |spec|
   spec.executables           = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.required_ruby_version = %(>= #{`cat .ruby-version`})
 
-  #############################################################################
-  # Dependencies
-  #############################################################################
-
   %i[
     rubocop-rspec
     rubocop-rake
@@ -33,6 +29,10 @@ Gem::Specification.new do |spec|
     yard
   ].each do |gem|
     spec.add_development_dependency(gem)
+  end
+
+  %i[stitches-terraform-synthesizer tty-option].each do |gem|
+    spec.add_runtime_dependency(gem)
   end
 
   spec.metadata[%(rubygems_mfa_required)] = %(true)
