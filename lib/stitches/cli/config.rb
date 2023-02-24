@@ -22,9 +22,17 @@ module Config
         p[ext] = [] unless p[ext]
         p[ext] << File.join(%(opt), %(share), %(stitches.#{ext}))
         p[ext] << File.join(%(/etc), %(stitches), %(stitches.#{ext}))
-        p[ext].concat(Dir.glob(File.join(%(/etc/), %(stitches), %(conf.d), %(*.#{ext}))))
+        p[ext].concat(
+          Dir.glob(
+            File.join(%(/etc/), %(stitches), %(conf.d), %(*.#{ext}))
+          )
+        )
         p[ext] << File.join(xdg_config_home, %(stitches), %(stitches.#{ext}))
-        p[ext].concat(Dir.glob(File.join(xdg_config_home, %(stitches), %(conf.d), %(*.#{ext}))))
+        p[ext].concat(
+          Dir.glob(
+            File.join(xdg_config_home, %(stitches), %(conf.d), %(*.#{ext}))
+          )
+        )
       end
 
       # reorganize so files are read in correctly
