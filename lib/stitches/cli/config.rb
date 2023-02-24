@@ -36,10 +36,26 @@ module Config
       end
 
       # remove rogue nils from globbing things that may not ext
-      res.compact
+      res = res.compact
+      # remove any file paths that do not exist
+      res = res.filter { |path| File.exist?(path) }
+    end
+
+    # read file paths and run configuration parsers
+    # then appropriately merge configurations
+    def resolve_configurations(extra_paths: [])
+      paths = default_paths.concat(extra_paths)
+      paths.each do |path|
+        parted  = path.split(%(.))
+        ext     = parted[-1]
+        _base   = parted[0]
+        synthesizer.synthesize(File.read(path), ext)
+      end
     end
   end
 end
 
 require 'json'
-puts JSON.pretty_generate(Config.default_paths)
+puts Config.default_paths
+puts Config.default_paths.class
+puts Config.default_paths.length
