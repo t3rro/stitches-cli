@@ -22,9 +22,9 @@ class Command < StitchesCommand
       InfraCommand.new.run(argv)
     when %(config)
       ConfigCommand.new.run(argv)
+    else
+      print help
+      exit
     end
-
-    print help
-    exit
   end
 end

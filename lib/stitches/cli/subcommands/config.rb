@@ -12,8 +12,6 @@ class ConfigCommand < StitchesCommand
     if params[:help]
       print help
       exit
-    else
-      pp params.to_h
     end
   end
 end
