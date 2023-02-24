@@ -1,6 +1,7 @@
 require_relative %(./stitches)
 require_relative %(./infra)
 require_relative %(./config)
+require_relative %(../version)
 
 class Command < StitchesCommand
   usage do
@@ -23,7 +24,8 @@ class Command < StitchesCommand
     when %(config)
       ConfigCommand.new.run(argv)
     else
-      print help
+      help if params[:help]
+      puts %(version: #{Stitches::Cli::Version}) if params[:version]
       exit
     end
   end
