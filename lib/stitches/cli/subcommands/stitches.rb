@@ -8,4 +8,10 @@ class StitchesCommand
     long %(--help)
     desc %(Print usage)
   end
+
+  flag :version do
+    short %(-v)
+    long %(--version)
+    desc %(Print version)
+  end
 end
