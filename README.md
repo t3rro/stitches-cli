@@ -38,3 +38,10 @@ its modules all the way down.
 you can have modules provide only ruby functions.
 you can have modules provide resources.
 you can have modules call other modules.
+
+if something is runnable then it can receive terraform commands
+the smallest runnable item is a project
+namespaces are also runnable
+
+flows are groups of runnable terraform commands in a DAG
+whose nodes are either namespace or namespace.project
