@@ -26,7 +26,7 @@ class Command < StitchesCommand
     else
       if params[:version]
         puts Stitches::Cli::VERSION
-      elsif params[:help]
+      else
         puts help
       end
       exit

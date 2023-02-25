@@ -9,9 +9,6 @@ class ConfigCommand < StitchesCommand
 
   def run(argv)
     parse(argv)
-    if params[:help]
-      print help
-      exit
-    end
+    print help
   end
 end
