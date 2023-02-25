@@ -1,3 +1,5 @@
+require %(stitches/synthesizer/config)
+
 module Config
   # configuration extensions
   EXTENSIONS = %i[
@@ -10,6 +12,10 @@ module Config
   ].freeze
 
   class << self
+    def synthesizer
+      @synthesizer ||= ConfigSynthesizer.new
+    end
+
     def xdg_config_home
       ENV.fetch(%(XDG_CONFIG_HOME), %(~/.config))
     end
@@ -57,8 +63,10 @@ module Config
         parted  = path.split(%(.))
         ext     = parted[-1]
         _base   = parted[0]
+
         synthesizer.synthesize(File.read(path), ext)
       end
+      synthesizer.synthesis
     end
   end
 end
