@@ -1,17 +1,10 @@
 require %(stitches/synthesizer/config)
+require %(stitches/constants)
 
 module Config
-  # configuration extensions
-  EXTENSIONS = %i[
-    json
-    toml
-    yaml
-    yml
-    nix
-    rb
-  ].freeze
-
   class << self
+    include Constants
+
     def synthesizer
       @synthesizer ||= ConfigSynthesizer.new
     end
