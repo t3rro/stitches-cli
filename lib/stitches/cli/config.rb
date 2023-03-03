@@ -50,8 +50,12 @@ module Config
 
     # read file paths and run configuration parsers
     # then appropriately merge configurations
-    def resolve_configurations(extra_paths: [])
-      paths = default_paths.concat(extra_paths)
+    def resolve_configurations(ignore_default_paths: false, extra_paths: [])
+      paths = if ignore_default_paths
+                extra_paths
+              else
+                default_paths.concat(extra_paths)
+              end
       paths.each do |path|
         parted  = path.split(%(.))
         ext     = parted[-1]
