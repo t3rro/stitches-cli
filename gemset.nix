@@ -29,6 +29,16 @@
     };
     version = "0.2.1";
   };
+  citrus = {
+    groups = ["default" "production"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "0l7nhk3gkm1hdchkzzhg2f70m47pc0afxfpl6mkiibc9qcpl3hjf";
+      type = "gem";
+    };
+    version = "3.0.2";
+  };
   diff-lcs = {
     groups = ["default" "development"];
     platforms = [];
@@ -264,10 +274,10 @@
     platforms = [];
     source = {
       remotes = ["https://rubygems.org"];
-      sha256 = "162c83q550hvlvdv834mqfkwv5cdsirlymmmmcmw9vlci5nq2imd";
+      sha256 = "0hcjyk8y8rbfzyhi3nnd3skdw6a53hq14lf4j0g2bjjfb3c5khch";
       type = "gem";
     };
-    version = "1.46.0";
+    version = "1.47.0";
   };
   rubocop-ast = {
     dependencies = ["parser"];
@@ -275,20 +285,20 @@
     platforms = [];
     source = {
       remotes = ["https://rubygems.org"];
-      sha256 = "1zqk8dgjjhm0zll2rxqvvb8fl5vin7mmbc1ndn1a2q4276ri6ydc";
+      sha256 = "16iabkwqhzqh3cd4pcrp0nqv4ks2whcz84csawi78ynfk12vd20a";
       type = "gem";
     };
-    version = "1.26.0";
+    version = "1.27.0";
   };
   ruby-progressbar = {
     groups = ["default" "development"];
     platforms = [];
     source = {
       remotes = ["https://rubygems.org"];
-      sha256 = "02nmaw7yx9kl7rbaan5pl8x5nn0y4j5954mzrkzi9i3dhsrps4nc";
+      sha256 = "1r5gnl9qz7ziyxyjl8p0lkqjblgpfs6hvgcw3ryv6fp1yyp44cj3";
       type = "gem";
     };
-    version = "1.11.0";
+    version = "1.12.0";
   };
   solargraph = {
     dependencies = ["backport" "benchmark" "diff-lcs" "e2mmap" "jaro_winkler" "kramdown" "kramdown-parser-gfm" "parser" "reverse_markdown" "rubocop" "thor" "tilt" "yard"];
@@ -340,6 +350,17 @@
       type = "gem";
     };
     version = "2.1.0";
+  };
+  toml-rb = {
+    dependencies = ["citrus"];
+    groups = ["production"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "19nr4wr5accc6l2y3avn7b02lqmk9035zxq42234k7fcqd5cbqm1";
+      type = "gem";
+    };
+    version = "2.2.0";
   };
   tty-option = {
     groups = ["production"];
