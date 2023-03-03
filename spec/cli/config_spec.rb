@@ -7,9 +7,7 @@ describe Config do
     defaults = { ignore_default_paths: true }
     it %(empty when paths ignored) do
       expect(
-        Config.resolve_configurations(
-          **defaults.merge({ extra_paths: [] })
-        )
+        Config.resolve_configurations(**defaults.merge({ extra_paths: [] }))
       ).to be_empty
     end
   end
